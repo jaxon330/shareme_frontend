@@ -15,6 +15,7 @@ const Home = () => {
   
   const userInfo = localStorage.getItem('user') !== 'underfined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear()
   const scrollRef = useRef(null)
+
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);
 
@@ -22,12 +23,10 @@ const Home = () => {
       .then((data) => {
         setUser(data[0]);
       })
-
   }, [])
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0)
-
   }, [])
   
 
