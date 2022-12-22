@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { searchQuery, feetQuery } from '../utils/data';
+import { searchQuery, feedQuery } from '../utils/data';
 import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 
 const Feed = () => {
     const [loading, setLoading] = useState(false)
-    const [pins, setPins] = useState(null)
+    const [pins, setPins] = useState();
     const { categoryId } = useParams();
 
     useEffect(() => {
         if(categoryId) {
+            setLoading(true);
             const query = searchQuery(categoryId);
 
             client.fetch(query)
@@ -21,7 +22,8 @@ const Feed = () => {
                     setLoading(false);
                 } )
         } else {
-            client.fetch(feetQuery)
+            setLoading(true)
+            client.fetch(feedQuery)
                 .then((data) => {
                     setPins(data);
                     setLoading(false);
