@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
+
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import ShareVide from '../assets/share.mp4';
 import Logo from '../assets/logowhite.png';
 
 import {client} from '../client.js';
+import jwt_decode from 'jwt-decode'
 
 const Login = () => {
   const navigate = useNavigate();
   const  responseGoogle = (response) => {
+
     localStorage.setItem('user', JSON.stringify(response.profileObj));
 
     const { name, googleId, imageUrl } = response.profileObj;
@@ -27,6 +30,15 @@ const Login = () => {
         navigate('/', { replace: true })
       })
   }
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        ClientId: process.env.REACT_APP_GOOGLE_API_TOKEN,
+        scope: '',
+      })
+    }
+    gapi.load('client:auth2', start)})
 
   return (
     <div className='flex justify-start items-center flex-col h-screen'>

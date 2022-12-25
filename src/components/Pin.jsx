@@ -14,7 +14,7 @@ const Pin = ({ pin }) => {
     const navigate = useNavigate();
     const { postedBy, image, _id, destination, save } = pin;
     const user = fetchUser();
-    const alreadySaved = !!(save?.filter((item) => item.postedBy?._id === user.googleId))
+    const alreadySaved = !!(save?.filter((item) => item?.postedBy?._id === user?.googleId))?.length;
     const savePin = (id) => {
         if(!alreadySaved) {
             setSavingPost(true);
@@ -24,10 +24,10 @@ const Pin = ({ pin }) => {
                 .setIfMissing({ save: []})
                 .insert('after', 'save[-1]', [{
                     _key: uuidv4(),
-                    userId: user.googleId,
+                    userId: user?.googleId,
                     postedBy: {
                         _type: 'postedBy',
-                        _rev: user.googleId
+                        _rev: user?.googleId
                     }
 
                 }])
@@ -105,7 +105,7 @@ const Pin = ({ pin }) => {
                             </a>
                         )}
 
-                        {postedBy?._id === user.googleId && (
+                        {postedBy?._id === user?.googleId && (
                             <button
                                 type='button'
                                 onClick={(e) => {
