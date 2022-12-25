@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { gapi } from 'gapi-script';
+
 
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
@@ -12,14 +12,24 @@ import jwt_decode from 'jwt-decode'
 
 const Login = () => {
   const navigate = useNavigate();
+
+
+  // const responseGoogle = (response) => {
+  //   console.log(response);
+  // }
+  const onFailure = (res) => {
+    console.log("Login Failed: ", res);
+  }
+
   const  responseGoogle = (response) => {
+    console.log(response.profileObj);
 
     localStorage.setItem('user', JSON.stringify(response.profileObj));
 
-    const { name, googleId, imageUrl } = response.profileObj;
+    const { clientId, name, imageUrl } = response.profileObj;
 
     const doc = {
-      _id: googleId,
+      _id: clientId,
       _type: 'user',
       userName: name,
       image: imageUrl,
@@ -31,14 +41,9 @@ const Login = () => {
       })
   }
 
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        ClientId: process.env.REACT_APP_GOOGLE_API_TOKEN,
-        scope: '',
-      })
-    }
-    gapi.load('client:auth2', start)})
+
+
+    
 
   return (
     <div className='flex justify-start items-center flex-col h-screen'>
@@ -72,7 +77,7 @@ const Login = () => {
                 )}
                     buttonText="Sign in with Google"
                     onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
+                    onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
               />
