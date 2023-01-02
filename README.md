@@ -8,7 +8,7 @@
 * JavaScript
 * React
 * Tailwindcss 
-* Google OATUTH
+* Google oauth
 * Sanity
 <!-- * NPM packages: @sainity/client @sanity/image-url react-google-login react-icons react-loader-spinner react-masonry-css react-router-dom uuid -->
 
