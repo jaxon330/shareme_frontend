@@ -1,33 +1,19 @@
-# Getting Started with Create React App
+# ShareMe Social Media Application
+![ShareMe](/shareme_frontend/public/screenshot.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+* ShareMe is modern fullstack application with all advanced social media features such as google authintication, create, edit, delete and save images, like and comment on other people's posts, search and filter images and much more.
 
-## Available Scripts
+## TECHNOLOGY USED
+* JavaScript
+* React
+* Tailwindcss 
+* Google OATUTH
+* Sanity
+<!-- * NPM packages: @sainity/client @sanity/image-url react-google-login react-icons react-loader-spinner react-masonry-css react-router-dom uuid -->
 
-In the project directory, you can run:
+https://shareme-jm.netlify.app/
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
 
