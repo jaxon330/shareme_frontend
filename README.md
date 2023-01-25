@@ -14,6 +14,11 @@
 
 https://shareme-jm.netlify.app/
 
+## Sreenshots
+<img width="806" alt="image" src="https://user-images.githubusercontent.com/86989396/214466952-72775798-736c-4c58-8c76-094aef13aaaa.png">
+<img width="801" alt="image" src="https://user-images.githubusercontent.com/86989396/214467116-99a91f5a-b001-4fc9-b61f-177650fa9924.png">
+<img width="807" alt="image" src="https://user-images.githubusercontent.com/86989396/214467222-584acbab-2385-411b-a752-ccc0432a134a.png">
+
 
 
 
